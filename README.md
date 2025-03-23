@@ -1,80 +1,45 @@
-# Big O Notation and Data Structures
+# Algorithm Analysis and Data Structures: Big O Notation and Linked Lists vs. Arrays
 
-## Overview
-This repository contains an overview of Big O Notation and a comparison between Linked Lists and Arrays, along with sample code demonstrating these concepts.
+This document provides a basic overview of Big O notation for algorithm analysis and a comparison between linked lists and arrays.
 
-## Big O Notation
-Big O notation is used to describe the efficiency of an algorithm in terms of time and space complexity. The key rules include:
+## 1. Big O Notation
 
-### 1. Ignoring Constants
-Big O ignores constant multipliers. For example:
-```
-5n + 3 → O(n)
-```
+Big O notation is used to describe the efficiency of algorithms, specifically their time and space complexity. [cite: 1]
 
-### 2. Removing Non-Dominant Terms
-Only the term that grows fastest matters.
-```
-n² + n → O(n²)
-```
+### 1.1 Rules of Big O Notation
 
-### 3. Common Time Complexities
-- **O(1)** - Constant time (e.g., accessing an array element)
-- **O(log n)** - Logarithmic time (e.g., binary search)
-- **O(n)** - Linear time (e.g., scanning an array)
-- **O(n²)** - Quadratic time (e.g., nested loops)
+* **Ignore Constants:** Big O notation disregards constant factors. [cite: 2, 3] For example, O(5n + 3) simplifies to O(n). [cite: 3]
+* **Remove Non-Dominant Terms:** Only the fastest-growing term is considered. [cite: 4, 5] For example, O(n² + n) simplifies to O(n²). [cite: 5]
+* **Multiple Growth Rates:** Common time complexities include:
+    * O(1) - Constant Time [cite: 6]
+    * O(log n) - Logarithmic Time [cite: 6, 7, 8]
+    * O(n) - Linear Time [cite: 6, 8, 9]
+    * O(n²) - Quadratic Time [cite: 6, 9]
+* **Worst-Case vs. Best-Case Analysis:** Big O typically describes the worst-case scenario. [cite: 10, 11, 12]
+    * For example, in a linear search, the best-case time complexity is O(1), and the worst-case time complexity is O(n). [cite: 11, 12]
+* **Multiplication Rule:**
+    * Consecutive loops have complexities that are added.
+    * Nested loops have complexities that are multiplied. [cite: 12]
+    * Example:
+        ```cpp
+        for(int i = 0; i <= n; i++) // O(n)
+        for(int j = 0; j < n; j++)  // O(n)
+        ```
+        The overall time complexity of the above code is O(n²). [cite: 12]
 
-### 4. Worst-Case vs Best-Case
-Big O usually describes the worst-case scenario.
-- Linear Search:
-  - **Best case:** O(1) (element found at the first position)
-  - **Worst case:** O(n) (element not found or at the last position)
+## 2. Linked Lists vs. Arrays
 
-### 5. Multiplication Rule
-- **Consecutive loops** → Time complexities are added.
-- **Nested loops** → Time complexities are multiplied.
+This section compares linked lists and arrays in terms of memory allocation and performance.
 
-Example:
-```cpp
-for(int i = 0; i < n; i++)  // O(n)
-    for(int j = 0; j < n; j++)  // O(n)
-        // Some operation
-```
-Overall complexity: **O(n²)**
+### Memory Allocation
 
----
+* **Arrays:** Use fixed, contiguous memory allocation. [cite: 12]
+* **Linked Lists:** Use non-contiguous, dynamic memory allocation. [cite: 12]
 
-## Linked Lists vs Arrays
-### 1. Memory Allocation
-- **Arrays:** Fixed contiguous memory allocation.
-- **Linked Lists:** Dynamic memory allocation (non-contiguous).
+### Performance
 
-### 2. Performance Comparison
-| Operation       | Arrays | Linked Lists |
-|----------------|--------|--------------|
-| Access (by index) | O(1) | O(n) |
-| Insertion (middle) | O(n) | O(1) (if node pointer is given) |
-
-### Example: Array vs Linked List Insertion
-- **Array:** To insert in the middle, elements must shift → **O(n)**.
-- **Linked List:** If pointer to node is given → **O(1)**.
-
----
-
-## How to Use the Code
-1. Clone this repository:
-   ```sh
-   git clone https://github.com/your-repo.git
-   ```
-2. Navigate to the directory:
-   ```sh
-   cd your-repo
-   ```
-3. Compile and run the C++ examples:
-   ```sh
-   g++ big_o_examples.cpp -o big_o
-   ./big_o
-   ```
-
-## License
-This project is licensed under the MIT License.
+* **Arrays:** Provide faster access to elements by index, with a time complexity of O(1). [cite: 12]
+* **Linked Lists:** Have a time complexity of O(n) for element access because you have to traverse the list. [cite: 12]
+* **Insertion**
+    * **Arrays:** Insertion can be time-consuming, with a time complexity of O(n) in the middle of the array because elements have to be shifted. [cite: 12, 13]
+    * **Linked Lists:** Insertion is efficient, with a time complexity of O(1) at the head if the node pointer is given. [cite: 12, 13]
