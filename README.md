@@ -1,6 +1,3 @@
-# Algorithm Analysis and Data Structures: Big O Notation and Linked Lists vs. Arrays
-
-This document provides a basic overview of Big O notation for algorithm analysis and a comparison between linked lists and arrays.
 
 ## 1. Big O Notation
 
